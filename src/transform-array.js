@@ -20,7 +20,7 @@ function transform(arr) {
 
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] === '--discard-next') {
-      arr[i + 1] && (i += 2);
+      i += arr[i + 2] && arr[i + 2].includes('-prev') ? 2 : 1;
     } else if (arr[i] === '--discard-prev') {
       res.pop();
     } else if (arr[i] === '--double-next') {
